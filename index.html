@@ -25,26 +25,26 @@
     <div class="container mx-auto px-4 py-8 max-w-4xl">
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-4xl font-bold text-indigo-800 mb-2">📚 Sistem Persamaan Linear</h1>
-            <p class="text-lg text-gray-600">Belajar menyelesaikan soal toko buah dengan metode eliminasi dan substitusi</p>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-indigo-800 mb-2">📚 Sistem Persamaan Linear</h1>
+            <p class="text-base sm:text-lg text-gray-600 px-4">Belajar menyelesaikan soal toko buah dengan metode eliminasi dan substitusi</p>
         </div>
 
         <!-- Navigation Tabs -->
-        <div class="flex flex-wrap justify-center mb-8 bg-white rounded-lg shadow-md p-2">
-            <button onclick="showSection('materi')" id="tab-materi" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-indigo-600 text-white">
+        <div class="flex flex-col sm:flex-row justify-center mb-8 bg-white rounded-lg shadow-md p-2 gap-2 sm:gap-0">
+            <button onclick="showSection('materi')" id="tab-materi" class="tab-btn px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-indigo-600 text-white text-sm sm:text-base">
                 📖 Materi
             </button>
-            <button onclick="showSection('soal-pembahasan')" id="tab-soal-pembahasan" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+            <button onclick="showSection('soal-pembahasan')" id="tab-soal-pembahasan" class="tab-btn px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50 text-sm sm:text-base">
                 📝 Soal & Pembahasan
             </button>
-            <button onclick="showSection('latihan')" id="tab-latihan" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+            <button onclick="showSection('latihan')" id="tab-latihan" class="tab-btn px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50 text-sm sm:text-base">
                 🎯 Latihan
             </button>
         </div>
 
         <!-- Materi Section -->
-        <div id="section-materi" class="section bg-white rounded-xl shadow-lg p-8 mb-6">
-            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+        <div id="section-materi" class="section bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6">
+            <h2 class="text-xl sm:text-2xl font-bold text-indigo-800 mb-6 flex items-center">
                 📖 Materi: Sistem Persamaan Linear Tiga Variabel
             </h2>
             
@@ -63,7 +63,7 @@
 
                 <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
                     <h3 class="text-xl font-semibold text-green-800 mb-3">🔧 Metode Penyelesaian</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div class="bg-white p-4 rounded">
                             <h4 class="font-semibold text-green-700 mb-2">1. Metode Eliminasi</h4>
                             <p class="text-sm text-gray-600">Menghilangkan satu variabel dengan menjumlahkan atau mengurangkan persamaan</p>
@@ -90,8 +90,8 @@
         </div>
 
         <!-- Soal & Pembahasan Section -->
-        <div id="section-soal-pembahasan" class="section bg-white rounded-xl shadow-lg p-8 mb-6 hidden">
-            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+        <div id="section-soal-pembahasan" class="section bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 hidden">
+            <h2 class="text-xl sm:text-2xl font-bold text-indigo-800 mb-6 flex items-center">
                 📝 Soal & Pembahasan: Toko Buah-buahan
             </h2>
             
@@ -121,12 +121,12 @@
                 
                 <div class="bg-blue-50 p-4 rounded-lg mt-6">
                     <h4 class="text-lg font-semibold text-blue-800 mb-3">Pilihan Jawaban:</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
-                        <div class="bg-white p-3 rounded text-center font-semibold">A. 5 buah</div>
-                        <div class="bg-white p-3 rounded text-center font-semibold">B. 9 buah</div>
-                        <div class="bg-white p-3 rounded text-center font-semibold">C. 14 buah</div>
-                        <div class="bg-white p-3 rounded text-center font-semibold">D. 18 buah</div>
-                        <div class="bg-white p-3 rounded text-center font-semibold">E. 19 buah</div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+                        <div class="bg-white p-3 rounded text-center font-semibold text-sm sm:text-base">A. 5 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold text-sm sm:text-base">B. 9 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold text-sm sm:text-base">C. 14 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold text-sm sm:text-base">D. 18 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold text-sm sm:text-base">E. 19 buah</div>
                     </div>
                 </div>
             </div>
@@ -231,8 +231,8 @@
         </div>
 
         <!-- Latihan Section -->
-        <div id="section-latihan" class="section bg-white rounded-xl shadow-lg p-8 mb-6 hidden">
-            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+        <div id="section-latihan" class="section bg-white rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6 hidden">
+            <h2 class="text-xl sm:text-2xl font-bold text-indigo-800 mb-6 flex items-center">
                 🎯 Latihan Soal
             </h2>
 
@@ -252,19 +252,19 @@
                     </div>
                     
                     <div class="space-y-3">
-                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             A. 8 buah
                         </button>
-                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             B. 10 buah
                         </button>
-                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             C. 11 buah
                         </button>
-                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             D. 12 buah
                         </button>
-                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             E. 15 buah
                         </button>
                     </div>
@@ -273,10 +273,10 @@
                 <div id="quiz-result" class="hidden"></div>
                 
                 <div class="text-center mt-6">
-                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
+                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300 text-sm sm:text-base">
                         🔄 Coba Lagi
                     </button>
-                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3">
+                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3 text-sm sm:text-base">
                         ➡️ Soal Berikutnya
                     </button>
                 </div>
@@ -394,7 +394,7 @@
             // Reset buttons
             buttons.forEach(btn => {
                 btn.disabled = false;
-                btn.className = 'answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300';
+                btn.className = 'answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base';
             });
 
             // Hide result
@@ -424,19 +424,19 @@
                         </div>
                         
                         <div class="space-y-3">
-                            <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                                 A. 12 buah
                             </button>
-                            <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                                 B. 16 buah
                             </button>
-                            <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                                 C. 18 buah
                             </button>
-                            <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                                 D. 20 buah
                             </button>
-                            <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                                 E. 22 buah
                             </button>
                         </div>
@@ -448,7 +448,7 @@
                         <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
                             🔄 Coba Lagi
                         </button>
-                        <button onclick="restartQuiz()" id="restart-btn" class="hidden bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 ml-3">
+                        <button onclick="restartQuiz()" id="restart-btn" class="hidden bg-blue-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 ml-3 text-sm sm:text-base">
                             🔄 Mulai Dari Awal
                         </button>
                     </div>
@@ -476,19 +476,19 @@
                     </div>
                     
                     <div class="space-y-3">
-                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             A. 8 buah
                         </button>
-                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             B. 10 buah
                         </button>
-                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             C. 11 buah
                         </button>
-                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             D. 12 buah
                         </button>
-                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base">
                             E. 15 buah
                         </button>
                     </div>
@@ -497,10 +497,10 @@
                 <div id="quiz-result" class="hidden"></div>
                 
                 <div class="text-center mt-6">
-                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
+                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300 text-sm sm:text-base">
                         🔄 Coba Lagi
                     </button>
-                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3">
+                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3 text-sm sm:text-base">
                         ➡️ Soal Berikutnya
                     </button>
                 </div>
@@ -512,5 +512,5 @@
             showSection('materi');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976c1eb315373dfb',t:'MTc1NjQ3MTI1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976c2c3fa2b525fd',t:'MTc1NjQ3MTgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
