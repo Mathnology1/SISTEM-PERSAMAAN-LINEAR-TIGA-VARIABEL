@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Persamaan Linear - Soal Toko Buah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .highlight {
+            background: linear-gradient(120deg, #fbbf24 0%, #fbbf24 100%);
+            background-repeat: no-repeat;
+            background-size: 100% 0.2em;
+            background-position: 0 88%;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-indigo-800 mb-2">📚 Sistem Persamaan Linear</h1>
+            <p class="text-lg text-gray-600">Belajar menyelesaikan soal toko buah dengan metode eliminasi dan substitusi</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex flex-wrap justify-center mb-8 bg-white rounded-lg shadow-md p-2">
+            <button onclick="showSection('materi')" id="tab-materi" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 bg-indigo-600 text-white">
+                📖 Materi
+            </button>
+            <button onclick="showSection('soal-pembahasan')" id="tab-soal-pembahasan" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+                📝 Soal & Pembahasan
+            </button>
+            <button onclick="showSection('latihan')" id="tab-latihan" class="tab-btn px-6 py-3 rounded-lg font-semibold transition-all duration-300 text-indigo-600 hover:bg-indigo-50">
+                🎯 Latihan
+            </button>
+        </div>
+
+        <!-- Materi Section -->
+        <div id="section-materi" class="section bg-white rounded-xl shadow-lg p-8 mb-6">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                📖 Materi: Sistem Persamaan Linear Tiga Variabel
+            </h2>
+            
+            <div class="space-y-6">
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <h3 class="text-xl font-semibold text-blue-800 mb-3">🎯 Definisi</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Sistem persamaan linear tiga variabel adalah sistem yang terdiri dari tiga persamaan linear dengan tiga variabel yang tidak diketahui. Bentuk umumnya:
+                    </p>
+                    <div class="bg-white p-4 rounded mt-3 font-mono text-center">
+                        ax + by + cz = d<br>
+                        ex + fy + gz = h<br>
+                        ix + jy + kz = l
+                    </div>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-green-800 mb-3">🔧 Metode Penyelesaian</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded">
+                            <h4 class="font-semibold text-green-700 mb-2">1. Metode Eliminasi</h4>
+                            <p class="text-sm text-gray-600">Menghilangkan satu variabel dengan menjumlahkan atau mengurangkan persamaan</p>
+                        </div>
+                        <div class="bg-white p-4 rounded">
+                            <h4 class="font-semibold text-green-700 mb-2">2. Metode Substitusi</h4>
+                            <p class="text-sm text-gray-600">Mengganti variabel dengan nilai yang sudah diketahui</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <h3 class="text-xl font-semibold text-yellow-800 mb-3">📋 Langkah-langkah Penyelesaian</h3>
+                    <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                        <li>Buat model matematika dari soal cerita</li>
+                        <li>Susun sistem persamaan linear</li>
+                        <li>Eliminasi satu variabel untuk mendapat sistem 2 variabel</li>
+                        <li>Selesaikan sistem 2 variabel</li>
+                        <li>Substitusi kembali untuk mencari variabel ketiga</li>
+                        <li>Verifikasi jawaban</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Soal & Pembahasan Section -->
+        <div id="section-soal-pembahasan" class="section bg-white rounded-xl shadow-lg p-8 mb-6 hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                📝 Soal & Pembahasan: Toko Buah-buahan
+            </h2>
+            
+            <!-- Soal -->
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 p-6 rounded-lg border border-orange-200 mb-8">
+                <h3 class="text-xl font-semibold text-orange-800 mb-4">📋 Soal</h3>
+                <div class="text-lg text-gray-800 leading-relaxed space-y-4">
+                    <p>🍎 Di suatu toko buah-buahan:</p>
+                    <ul class="space-y-3 ml-4">
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">•</span>
+                            <span><strong>Ani</strong> membeli <span class="highlight">2 apel dan 7 jeruk</span>, membayar <strong>Rp42.000</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">•</span>
+                            <span><strong>Asep</strong> membeli <span class="highlight">4 apel dan 3 jeruk</span>, membayar <strong>Rp40.000</strong></span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-orange-500 mr-2">•</span>
+                            <span><strong>Budi</strong> membeli <span class="highlight">jeruk 4 buah lebih banyak dari apel</span>, membayar <strong>Rp71.000</strong></span>
+                        </li>
+                    </ul>
+                    <p class="text-xl font-semibold text-indigo-800 mt-6">
+                        ❓ Berapa banyak buah yang dibeli Budi?
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-4 rounded-lg mt-6">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-3">Pilihan Jawaban:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3">
+                        <div class="bg-white p-3 rounded text-center font-semibold">A. 5 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold">B. 9 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold">C. 14 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold">D. 18 buah</div>
+                        <div class="bg-white p-3 rounded text-center font-semibold">E. 19 buah</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pembahasan -->
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-indigo-800 mb-4">🔍 Pembahasan Lengkap</h3>
+                
+                <!-- Step 1 -->
+                <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                    <h4 class="text-lg font-semibold text-purple-800 mb-3">Langkah 1: Membuat Model Matematika</h4>
+                    <p class="mb-3">Misalkan:</p>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700 mb-4">
+                        <li><strong>x</strong> = harga 1 apel (rupiah)</li>
+                        <li><strong>y</strong> = harga 1 jeruk (rupiah)</li>
+                        <li><strong>a</strong> = jumlah apel yang dibeli Budi</li>
+                        <li><strong>j</strong> = jumlah jeruk yang dibeli Budi</li>
+                    </ul>
+                    <div class="bg-white p-4 rounded">
+                        <p class="font-semibold mb-2">Dari informasi yang diberikan:</p>
+                        <div class="font-mono space-y-1">
+                            <div>Ani: 2x + 7y = 42.000 ... (1)</div>
+                            <div>Asep: 4x + 3y = 40.000 ... (2)</div>
+                            <div>Budi: j = a + 4 ... (3)</div>
+                            <div>Budi: ax + jy = 71.000 ... (4)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                    <h4 class="text-lg font-semibold text-green-800 mb-3">Langkah 2: Mencari Harga Apel dan Jeruk</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold mb-2">Eliminasi variabel y dari persamaan (1) dan (2):</p>
+                            <div class="bg-white p-4 rounded font-mono text-sm">
+                                <div>2x + 7y = 42.000 |×3| → 6x + 21y = 126.000</div>
+                                <div>4x + 3y = 40.000 |×7| → 28x + 21y = 280.000</div>
+                                <div class="border-t pt-2 mt-2">
+                                    <div>28x + 21y - (6x + 21y) = 280.000 - 126.000</div>
+                                    <div>22x = 154.000</div>
+                                    <div class="font-bold text-green-600">x = 7.000</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="font-semibold mb-2">Substitusi x = 7.000 ke persamaan (1):</p>
+                            <div class="bg-white p-4 rounded font-mono text-sm">
+                                <div>2(7.000) + 7y = 42.000</div>
+                                <div>14.000 + 7y = 42.000</div>
+                                <div>7y = 28.000</div>
+                                <div class="font-bold text-green-600">y = 4.000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                    <h4 class="text-lg font-semibold text-blue-800 mb-3">Langkah 3: Mencari Jumlah Buah Budi</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="mb-2">Dari persamaan (3): j = a + 4</p>
+                            <p class="mb-2">Substitusi ke persamaan (4):</p>
+                            <div class="bg-white p-4 rounded font-mono text-sm">
+                                <div>ax + jy = 71.000</div>
+                                <div>a(7.000) + (a + 4)(4.000) = 71.000</div>
+                                <div>7.000a + 4.000a + 16.000 = 71.000</div>
+                                <div>11.000a = 55.000</div>
+                                <div class="font-bold text-blue-600">a = 5</div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="mb-2">Maka jumlah jeruk Budi:</p>
+                            <div class="bg-white p-4 rounded font-mono text-sm">
+                                <div>j = a + 4 = 5 + 4 = 9</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                    <h4 class="text-lg font-semibold text-yellow-800 mb-3">Langkah 4: Jawaban Akhir</h4>
+                    <div class="bg-white p-6 rounded-lg text-center">
+                        <p class="text-lg mb-2">Total buah yang dibeli Budi:</p>
+                        <p class="text-2xl font-bold text-yellow-600">5 apel + 9 jeruk = 14 buah</p>
+                        <p class="text-lg mt-4 font-semibold text-green-600">Jawaban: C. 14 buah</p>
+                    </div>
+                </div>
+
+                <!-- Verification -->
+                <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-gray-500">
+                    <h4 class="text-lg font-semibold text-gray-800 mb-3">✅ Verifikasi</h4>
+                    <div class="space-y-2 font-mono text-sm">
+                        <div>Ani: 2(7.000) + 7(4.000) = 14.000 + 28.000 = 42.000 ✓</div>
+                        <div>Asep: 4(7.000) + 3(4.000) = 28.000 + 12.000 = 40.000 ✓</div>
+                        <div>Budi: 5(7.000) + 9(4.000) = 35.000 + 36.000 = 71.000 ✓</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Latihan Section -->
+        <div id="section-latihan" class="section bg-white rounded-xl shadow-lg p-8 mb-6 hidden">
+            <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                🎯 Latihan Soal
+            </h2>
+
+            <div id="quiz-container">
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200 mb-6">
+                    <h3 class="text-xl font-semibold text-purple-800 mb-4">📝 Soal Latihan 1</h3>
+                    <div class="text-gray-800 leading-relaxed space-y-3 mb-6">
+                        <p>🏪 Di sebuah toko alat tulis:</p>
+                        <ul class="space-y-2 ml-4">
+                            <li>• Dina membeli 3 pensil dan 2 penggaris seharga Rp15.000</li>
+                            <li>• Eko membeli 1 pensil dan 4 penggaris seharga Rp17.000</li>
+                            <li>• Fani membeli pensil 2 buah lebih banyak dari penggaris seharga Rp19.000</li>
+                        </ul>
+                        <p class="text-lg font-semibold text-purple-800 mt-4">
+                            ❓ Berapa total alat tulis yang dibeli Fani?
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            A. 8 buah
+                        </button>
+                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            B. 10 buah
+                        </button>
+                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            C. 11 buah
+                        </button>
+                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            D. 12 buah
+                        </button>
+                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            E. 15 buah
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden"></div>
+                
+                <div class="text-center mt-6">
+                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
+                        🔄 Coba Lagi
+                    </button>
+                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3">
+                        ➡️ Soal Berikutnya
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-600">
+            <p class="text-sm">💡 Aplikasi Pembelajaran Sistem Persamaan Linear</p>
+            <p class="text-xs mt-1">Belajar matematika dengan cara yang menyenangkan!</p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            document.getElementById(`section-${sectionName}`).classList.remove('hidden');
+            document.getElementById(`section-${sectionName}`).classList.add('fade-in');
+
+            // Update tab styles
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-indigo-600', 'text-white');
+                tab.classList.add('text-indigo-600', 'hover:bg-indigo-50');
+            });
+
+            document.getElementById(`tab-${sectionName}`).classList.add('bg-indigo-600', 'text-white');
+            document.getElementById(`tab-${sectionName}`).classList.remove('text-indigo-600', 'hover:bg-indigo-50');
+        }
+
+        let currentQuestion = 1;
+        const totalQuestions = 2;
+
+        function checkAnswer(selectedAnswer) {
+            const buttons = document.querySelectorAll('.answer-btn');
+            const resultDiv = document.getElementById('quiz-result');
+            const resetBtn = document.getElementById('reset-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Disable all buttons
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.remove('hover:border-purple-400');
+            });
+
+            let isCorrect = false;
+            let correctAnswer = '';
+            let explanation = '';
+
+            // Check answer based on current question
+            if (currentQuestion === 1) {
+                isCorrect = selectedAnswer === 'C';
+                correctAnswer = 'C. 11 buah';
+                explanation = isCorrect ? 
+                    'Fani membeli 7 pensil + 4 penggaris = 11 alat tulis total.' :
+                    'Jawaban yang benar adalah C. 11 buah. Fani: 7 pensil + 4 penggaris = 11 alat tulis.';
+            } else if (currentQuestion === 2) {
+                isCorrect = selectedAnswer === 'B';
+                correctAnswer = 'B. 16 buah';
+                explanation = isCorrect ? 
+                    'Gina membeli 10 buku + 6 pulpen = 16 alat tulis total.' :
+                    'Jawaban yang benar adalah B. 16 buah. Gina: 10 buku + 6 pulpen = 16 alat tulis.';
+            }
+
+            // Show result
+            if (isCorrect) {
+                const selectedIndex = selectedAnswer.charCodeAt(0) - 65;
+                buttons[selectedIndex].classList.add('border-green-500', 'bg-green-50', 'text-green-800');
+                resultDiv.innerHTML = `
+                    <div class="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-3">🎉</div>
+                        <h3 class="text-xl font-bold text-green-800 mb-2">Benar!</h3>
+                        <p class="text-green-700">${explanation}</p>
+                    </div>
+                `;
+                if (currentQuestion < totalQuestions) {
+                    nextBtn.classList.remove('hidden');
+                } else {
+                    // Show restart button for last question
+                    const restartBtn = document.getElementById('restart-btn');
+                    if (restartBtn) restartBtn.classList.remove('hidden');
+                }
+            } else {
+                const selectedIndex = selectedAnswer.charCodeAt(0) - 65;
+                const correctIndex = correctAnswer.charCodeAt(0) - 65;
+                buttons[selectedIndex].classList.add('border-red-500', 'bg-red-50', 'text-red-800');
+                buttons[correctIndex].classList.add('border-green-500', 'bg-green-50', 'text-green-800');
+                
+                resultDiv.innerHTML = `
+                    <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+                        <div class="text-4xl mb-3">❌</div>
+                        <h3 class="text-xl font-bold text-red-800 mb-2">Belum Tepat</h3>
+                        <p class="text-red-700">${explanation}</p>
+                    </div>
+                `;
+            }
+
+            resultDiv.classList.remove('hidden');
+            resultDiv.classList.add('fade-in');
+            resetBtn.classList.remove('hidden');
+        }
+
+        function resetQuiz() {
+            const buttons = document.querySelectorAll('.answer-btn');
+            const resultDiv = document.getElementById('quiz-result');
+            const resetBtn = document.getElementById('reset-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Reset buttons
+            buttons.forEach(btn => {
+                btn.disabled = false;
+                btn.className = 'answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300';
+            });
+
+            // Hide result
+            resultDiv.classList.add('hidden');
+            resetBtn.classList.add('hidden');
+            nextBtn.classList.add('hidden');
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            const quizContainer = document.getElementById('quiz-container');
+            
+            if (currentQuestion === 2) {
+                quizContainer.innerHTML = `
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200 mb-6">
+                        <h3 class="text-xl font-semibold text-purple-800 mb-4">📝 Soal Latihan 2</h3>
+                        <div class="text-gray-800 leading-relaxed space-y-3 mb-6">
+                            <p>📚 Di sebuah toko buku:</p>
+                            <ul class="space-y-2 ml-4">
+                                <li>• Hana membeli 2 buku dan 5 pulpen seharga Rp25.000</li>
+                                <li>• Iqbal membeli 3 buku dan 2 pulpen seharga Rp22.000</li>
+                                <li>• Gina membeli buku 4 buah lebih banyak dari pulpen seharga Rp58.000</li>
+                            </ul>
+                            <p class="text-lg font-semibold text-purple-800 mt-4">
+                                ❓ Berapa total alat tulis yang dibeli Gina?
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                                A. 12 buah
+                            </button>
+                            <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                                B. 16 buah
+                            </button>
+                            <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                                C. 18 buah
+                            </button>
+                            <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                                D. 20 buah
+                            </button>
+                            <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                                E. 22 buah
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="quiz-result" class="hidden"></div>
+                    
+                    <div class="text-center mt-6">
+                        <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
+                            🔄 Coba Lagi
+                        </button>
+                        <button onclick="restartQuiz()" id="restart-btn" class="hidden bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 ml-3">
+                            🔄 Mulai Dari Awal
+                        </button>
+                    </div>
+                `;
+            }
+        }
+
+        function restartQuiz() {
+            currentQuestion = 1;
+            const quizContainer = document.getElementById('quiz-container');
+            
+            quizContainer.innerHTML = `
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200 mb-6">
+                    <h3 class="text-xl font-semibold text-purple-800 mb-4">📝 Soal Latihan 1</h3>
+                    <div class="text-gray-800 leading-relaxed space-y-3 mb-6">
+                        <p>🏪 Di sebuah toko alat tulis:</p>
+                        <ul class="space-y-2 ml-4">
+                            <li>• Dina membeli 3 pensil dan 2 penggaris seharga Rp15.000</li>
+                            <li>• Eko membeli 1 pensil dan 4 penggaris seharga Rp17.000</li>
+                            <li>• Fani membeli pensil 2 buah lebih banyak dari penggaris seharga Rp19.000</li>
+                        </ul>
+                        <p class="text-lg font-semibold text-purple-800 mt-4">
+                            ❓ Berapa total alat tulis yang dibeli Fani?
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <button onclick="checkAnswer('A')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            A. 8 buah
+                        </button>
+                        <button onclick="checkAnswer('B')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            B. 10 buah
+                        </button>
+                        <button onclick="checkAnswer('C')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            C. 11 buah
+                        </button>
+                        <button onclick="checkAnswer('D')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            D. 12 buah
+                        </button>
+                        <button onclick="checkAnswer('E')" class="answer-btn w-full text-left p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300">
+                            E. 15 buah
+                        </button>
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="hidden"></div>
+                
+                <div class="text-center mt-6">
+                    <button onclick="resetQuiz()" id="reset-btn" class="hidden bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition-colors duration-300">
+                        🔄 Coba Lagi
+                    </button>
+                    <button onclick="nextQuestion()" id="next-btn" class="hidden bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300 ml-3">
+                        ➡️ Soal Berikutnya
+                    </button>
+                </div>
+            `;
+        }
+
+        // Initialize with materi section
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('materi');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976c1eb315373dfb',t:'MTc1NjQ3MTI1OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
