@@ -337,13 +337,13 @@
                 isCorrect = selectedAnswer === 'C';
                 correctAnswer = 'C. 11 buah';
                 explanation = isCorrect ? 
-                    'Fani membeli 7 pensil + 4 penggaris = 11 alat tulis total.' :
+                    'Benar! Fani membeli 7 pensil + 4 penggaris = 11 alat tulis total.' :
                     'Jawaban yang benar adalah C. 11 buah. Fani: 7 pensil + 4 penggaris = 11 alat tulis.';
             } else if (currentQuestion === 2) {
                 isCorrect = selectedAnswer === 'B';
                 correctAnswer = 'B. 16 buah';
                 explanation = isCorrect ? 
-                    'Gina membeli 10 buku + 6 pulpen = 16 alat tulis total.' :
+                    'Benar! Gina membeli 10 buku + 6 pulpen = 16 alat tulis total.' :
                     'Jawaban yang benar adalah B. 16 buah. Gina: 10 buku + 6 pulpen = 16 alat tulis.';
             }
 
@@ -355,7 +355,10 @@
                     <div class="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
                         <div class="text-4xl mb-3">🎉</div>
                         <h3 class="text-xl font-bold text-green-800 mb-2">Benar!</h3>
-                        <p class="text-green-700">${explanation}</p>
+                        <p class="text-green-700 mb-4">${explanation}</p>
+                        <button onclick="showExplanation()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm">
+                            📖 Lihat Pembahasan Lengkap
+                        </button>
                     </div>
                 `;
                 if (currentQuestion < totalQuestions) {
@@ -375,7 +378,10 @@
                     <div class="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
                         <div class="text-4xl mb-3">❌</div>
                         <h3 class="text-xl font-bold text-red-800 mb-2">Belum Tepat</h3>
-                        <p class="text-red-700">${explanation}</p>
+                        <p class="text-red-700 mb-4">${explanation}</p>
+                        <button onclick="showExplanation()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-300 text-sm">
+                            📖 Lihat Pembahasan Lengkap
+                        </button>
                     </div>
                 `;
             }
@@ -390,6 +396,7 @@
             const resultDiv = document.getElementById('quiz-result');
             const resetBtn = document.getElementById('reset-btn');
             const nextBtn = document.getElementById('next-btn');
+            const explanationDiv = document.getElementById('explanation-detail');
 
             // Reset buttons
             buttons.forEach(btn => {
@@ -397,10 +404,15 @@
                 btn.className = 'answer-btn w-full text-left p-3 sm:p-4 bg-white rounded-lg border-2 border-gray-200 hover:border-purple-400 transition-all duration-300 text-sm sm:text-base';
             });
 
-            // Hide result
+            // Hide result and explanation
             resultDiv.classList.add('hidden');
             resetBtn.classList.add('hidden');
             nextBtn.classList.add('hidden');
+            
+            // Remove explanation if exists
+            if (explanationDiv) {
+                explanationDiv.remove();
+            }
         }
 
         function nextQuestion() {
@@ -507,10 +519,108 @@
             `;
         }
 
+        function showExplanation() {
+            const explanationDiv = document.createElement('div');
+            explanationDiv.id = 'explanation-detail';
+            explanationDiv.className = 'mt-6 bg-white rounded-lg border-2 border-blue-200 p-6 fade-in';
+            
+            let explanationContent = '';
+            
+            if (currentQuestion === 1) {
+                explanationContent = `
+                    <h4 class="text-lg font-bold text-blue-800 mb-4">🔍 Pembahasan Soal Latihan 1</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                            <h5 class="font-semibold text-purple-800 mb-2">Langkah 1: Membuat Model Matematika</h5>
+                            <p class="mb-2">Misalkan: x = harga pensil, y = harga penggaris</p>
+                            <div class="font-mono text-sm space-y-1">
+                                <div>Dina: 3x + 2y = 15.000 ... (1)</div>
+                                <div>Eko: x + 4y = 17.000 ... (2)</div>
+                                <div>Fani: p = r + 2, px + ry = 19.000 ... (3)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h5 class="font-semibold text-green-800 mb-2">Langkah 2: Eliminasi untuk mencari x dan y</h5>
+                            <div class="font-mono text-sm space-y-2">
+                                <div>3x + 2y = 15.000 |×4| → 12x + 8y = 60.000</div>
+                                <div>x + 4y = 17.000 |×2| → 2x + 8y = 34.000</div>
+                                <div class="border-t pt-2">10x = 26.000 → x = 2.600</div>
+                                <div>Substitusi: 2.600 + 4y = 17.000 → y = 3.600</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h5 class="font-semibold text-blue-800 mb-2">Langkah 3: Mencari jumlah alat tulis Fani</h5>
+                            <div class="font-mono text-sm space-y-2">
+                                <div>p × 2.600 + r × 3.600 = 19.000</div>
+                                <div>p = r + 2, maka: (r + 2) × 2.600 + r × 3.600 = 19.000</div>
+                                <div>2.600r + 5.200 + 3.600r = 19.000</div>
+                                <div>6.200r = 13.800 → r = 4</div>
+                                <div>p = 4 + 2 = 7</div>
+                                <div class="font-bold text-blue-600">Total: 7 + 4 = 11 buah</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (currentQuestion === 2) {
+                explanationContent = `
+                    <h4 class="text-lg font-bold text-blue-800 mb-4">🔍 Pembahasan Soal Latihan 2</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                            <h5 class="font-semibold text-purple-800 mb-2">Langkah 1: Membuat Model Matematika</h5>
+                            <p class="mb-2">Misalkan: x = harga buku, y = harga pulpen</p>
+                            <div class="font-mono text-sm space-y-1">
+                                <div>Hana: 2x + 5y = 25.000 ... (1)</div>
+                                <div>Iqbal: 3x + 2y = 22.000 ... (2)</div>
+                                <div>Gina: b = p + 4, bx + py = 58.000 ... (3)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                            <h5 class="font-semibold text-green-800 mb-2">Langkah 2: Eliminasi untuk mencari x dan y</h5>
+                            <div class="font-mono text-sm space-y-2">
+                                <div>2x + 5y = 25.000 |×3| → 6x + 15y = 75.000</div>
+                                <div>3x + 2y = 22.000 |×2| → 6x + 4y = 44.000</div>
+                                <div class="border-t pt-2">11y = 31.000 → y = 3.000</div>
+                                <div>Substitusi: 2x + 5(3.000) = 25.000 → x = 5.000</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h5 class="font-semibold text-blue-800 mb-2">Langkah 3: Mencari jumlah alat tulis Gina</h5>
+                            <div class="font-mono text-sm space-y-2">
+                                <div>b × 5.000 + p × 3.000 = 58.000</div>
+                                <div>b = p + 4, maka: (p + 4) × 5.000 + p × 3.000 = 58.000</div>
+                                <div>5.000p + 20.000 + 3.000p = 58.000</div>
+                                <div>8.000p = 38.000 → p = 6</div>
+                                <div>b = 6 + 4 = 10</div>
+                                <div class="font-bold text-blue-600">Total: 10 + 6 = 16 buah</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            explanationDiv.innerHTML = explanationContent;
+            
+            // Remove existing explanation if any
+            const existingExplanation = document.getElementById('explanation-detail');
+            if (existingExplanation) {
+                existingExplanation.remove();
+            }
+            
+            // Add explanation after result
+            const resultDiv = document.getElementById('quiz-result');
+            resultDiv.parentNode.insertBefore(explanationDiv, resultDiv.nextSibling);
+        }
+
         // Initialize with materi section
         document.addEventListener('DOMContentLoaded', function() {
             showSection('materi');
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976c2c3fa2b525fd',t:'MTc1NjQ3MTgxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'976c3a205597ff96',t:'MTc1NjQ3MjM4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
